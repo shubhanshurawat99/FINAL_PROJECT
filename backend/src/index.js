@@ -13,10 +13,24 @@ const cors = require('cors')
 
 // console.log("Hello")
 
+const cors = require('cors');
+
+const allowedOrigins = [
+  'http://localhost:5173', // for local development
+  'https://final-project-frontend-zua7.onrender.com' // ✅ production frontend
+];
+
 app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true 
-}))
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS policy violation'));
+    }
+  },
+  credentials: true
+}));
+
 
 app.use(express.json());
 app.use(cookieParser());
