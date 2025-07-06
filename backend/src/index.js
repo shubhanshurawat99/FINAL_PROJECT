@@ -13,7 +13,7 @@ const cors = require('cors')
 
 // console.log("Hello")
 
-const cors = require('cors');
+
 
 const allowedOrigins = [
   'http://localhost:5173', // for local development
