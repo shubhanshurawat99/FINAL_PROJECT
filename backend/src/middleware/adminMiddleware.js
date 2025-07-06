@@ -2,15 +2,21 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const redisClient = require("../config/redis")
 
+
 const adminMiddleware = async (req,res,next)=>{
 
     try{
+        const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      throw new Error("Token is not present");
+    }
+    
+    const token = authHeader.split(' ')[1];
+    
+    // Rest of your verification logic remains the same
+    const payload = jwt.verify(token, process.env.JWT_KEY);
        
-        const {token} = req.cookies;
-        if(!token)
-            throw new Error("Token is not persent");
 
-        const payload = jwt.verify(token,process.env.JWT_KEY);
 
         const {_id} = payload;
 

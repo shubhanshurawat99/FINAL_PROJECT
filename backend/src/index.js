@@ -15,10 +15,15 @@ const cors = require('cors')
 
 
 
+// backend/index.js
+const cors = require('cors');
+
 app.use(cors({
-    origin: 'https://final-project-frontend-u20y.onrender.com',
-    credentials: true 
-}))
+  origin: 'https://final-project-frontend-zua7.onrender.com',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -36,7 +41,7 @@ const InitalizeConnection = async ()=>{
         await Promise.all([main(),redisClient.connect()]);
         console.log("DB Connected");
         
-        app.listen(process.env.PORT, ()=>{
+        app.listen(process.env.PORT||4000, ()=>{
             console.log("Server listening at port number: "+ process.env.PORT);
         })
 
