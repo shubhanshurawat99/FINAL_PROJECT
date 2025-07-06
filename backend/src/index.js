@@ -9,7 +9,7 @@ const problemRouter = require("./routes/problemCreator");
 const submitRouter = require("./routes/submit")
 const aiRouter = require("./routes/aiChatting")
 const videoRouter = require("./routes/videoCreator");
-const cors = require('cors')
+
 
 // console.log("Hello")
 
@@ -19,7 +19,7 @@ const cors = require('cors')
 const cors = require('cors');
 
 app.use(cors({
-  origin: 'https://final-project-frontend-zua7.onrender.com',
+  origin: 'https://final-project-frontend-u20y.onrender.com',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
