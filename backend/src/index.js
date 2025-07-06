@@ -16,7 +16,7 @@ const cors = require('cors')
 
 
 app.use(cors({
-    origin: 'https://final-project-frontend-zua7.onrender.com',
+    origin: 'https://final-project-frontend-u20y.onrender.com',
     credentials: true 
 }))
 
